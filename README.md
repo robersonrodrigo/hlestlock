@@ -24,4 +24,4 @@ Um script Bash para análise de logs. Este script permite que você visualize v�
 2. Altere a variável `LOG_FILE` para o caminho correto do arquivo de log, se necessário.
 3. Torne o script executável:
    ```bash
-   chmod +x analyze_logs.sh
+   chmod +x hlestlock-analyzer.sh
