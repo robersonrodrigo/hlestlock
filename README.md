@@ -1,7 +1,7 @@
 # Hlestlock - Analisador de Log
 
- 
-![image](https://github.com/user-attachments/assets/f40e6ffd-b859-47e5-9027-57df03b056a7)
+ ![image](https://github.com/user-attachments/assets/50031d32-3d5f-4766-ba96-1a251e094a2b)
+
 
 
 ## Descrição
