@@ -19,16 +19,15 @@ O **Hlestlock** é um script em Bash que permite analisar arquivos de log de ser
    cd hlestlock-analyzer
    
 2. Dê permissão de execução ao script:
-   
+   ```bash
    chmod +x hlestlock-analyzer.sh
 
 ## Uso
+ Para executar o script, utilize o seguinte comando:
+   ```bash
+   ./hlestlock-analyzer.sh /caminho/do/arquivo.log
 
-Para executar o script, utilize o seguinte comando:
-
- "./hlestlock-analyzer.sh /caminho/do/arquivo.log"
-
- ## Funcionalidades
+## Funcionalidades
 
 O script oferece um menu interativo com as seguintes opções:
 
