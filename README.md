@@ -1,7 +1,21 @@
 # Hlestlock - Analisador de Log
 
+    echo -e "\033[31m"
+    echo -e ""
+    echo -e "   _   _  _           _     _            _              "
+    echo -e "  | | | || |         | |   | |          | |             "
+    echo -e "  | |_| || | ___  ___| |_  | | ___   ___| |_            "
+    echo -e "  |  _  || |/ _ \/ __| __| | |/ _ \ / __| __|           "
+    echo -e "  | | | || |  __/ \__ \ |_ | | (_) | (__| |_            "
+    echo -e "  \_| |_/|_|\___| |___/\__||_|\___/ \___|\__|  v1.0.0   "
+    echo -e "                                                        "
+    echo -e "                  Log Analyzer                          "
+    echo -e "                  Developed by ZeD                      "
+    echo ""   
+    echo -e "\033[0m"
+
 ## Descrição
-O **Hlestlock** é um script em Bash que permite analisar arquivos de log de servidores web. Ele fornece várias funcionalidades, como listar IPs que acessaram o servidor, contar acessos por recurso, identificar User-Agents utilizados, e muito mais. Este script é útil para administradores de sistemas e desenvolvedores que desejam monitorar e entender melhor o tráfego de seus servidores.
+O **Hlestlock** é um script em Bash que permite analisar arquivos de log de servidores **apache2**. Ele fornece várias funcionalidades, como listar IPs que acessaram o servidor, contar acessos por recurso, identificar User-Agents utilizados, e muito mais. Este script é útil para administradores de sistemas e desenvolvedores que desejam monitorar e entender melhor o tráfego de seus servidores.
 
 ## Pré-requisitos
 - Um sistema operacional baseado em Unix (Linux, macOS, etc.)
@@ -12,11 +26,11 @@ O **Hlestlock** é um script em Bash que permite analisar arquivos de log de ser
 1. Clone este repositório:
    ```bash
    git clone https://github.com/robersonrodrigo/hlestlock-analyzer
-   cd nome_do_repositorio
+   cd hlestlock-analyzer
    
 2. Dê permissão de execução ao script:
    
-   chmod +x nome.sh
+   chmod +x hlestlock-analyzer.sh
 
 ## Uso
 
@@ -46,6 +60,7 @@ O script oferece um menu interativo com as seguintes opções:
     
  Roberson Rodrigo - https://github.com/robersonrodrigo/ | https://www.linkedin.com/in/robersonr
      
-     Contribuições:
-     
-Carlos Tuma - https://github.com/carlosalbertotuma | https://www.linkedin.com/in/carlos-tuma
+   Contribuições Especiais:
+   Carlos Tuma - https://github.com/carlosalbertotuma | https://www.linkedin.com/in/carlos-tuma
+
+   0ff3ns!v3 S3cur!ty ®
