@@ -22,7 +22,7 @@ O **Hlestlock** é um script em Bash que permite analisar arquivos de log de ser
 
 Para executar o script, utilize o seguinte comando:
 
- ./hlestlock-analyzer.sh /caminho/do/arquivo.log
+ "./hlestlock-analyzer.sh /caminho/do/arquivo.log"
 
  ## Funcionalidades
 
