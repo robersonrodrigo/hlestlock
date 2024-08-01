@@ -7,7 +7,7 @@ cor_reset="\e[0m"        # Reseta a formatação para o padrão
 
 # Função para exibir o banner de uso
 banner() {
-    echo "Uso: ./nome.sh  /caminho/do/arquivo.log"
+    echo "Uso: ./hlestlock-analyzer.sh  /caminho/do/arquivo.log"
 }
 
 # Função para exibir o banner principal
