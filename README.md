@@ -40,5 +40,10 @@ O script oferece um menu interativo com as seguintes opções:
 
    Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
    
-## Autor
-Desenvolvido por ZeD.
+## Créditos
+
+    Desenvolvedor Principal: ZeD 
+     Roberson Rodrigo - https://www.linkedin.com/in/robersonr/
+   
+   Contribuições:
+        Carlos Tuma  - https://github.com/carlosalbertotuma | https://www.linkedin.com/in/carlos-tuma/
