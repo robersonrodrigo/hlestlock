@@ -1,18 +1,16 @@
 # Hlestlock - Analisador de Log
 
-    echo -e "\033[31m"
-    echo -e ""
-    echo -e "   _   _  _           _     _            _              "
-    echo -e "  | | | || |         | |   | |          | |             "
-    echo -e "  | |_| || | ___  ___| |_  | | ___   ___| |_            "
-    echo -e "  |  _  || |/ _ \/ __| __| | |/ _ \ / __| __|           "
-    echo -e "  | | | || |  __/ \__ \ |_ | | (_) | (__| |_            "
-    echo -e "  \_| |_/|_|\___| |___/\__||_|\___/ \___|\__|  v1.0.0   "
-    echo -e "                                                        "
-    echo -e "                  Log Analyzer                          "
-    echo -e "                  Developed by ZeD                      "
-    echo ""   
-    echo -e "\033[0m"
+ 
+ 
+      _   _  _           _    _            _              
+     | | | || |         | |  | |          | |             
+     | |_| || | ___  ___| |_ | | ___   ___| |_            
+     |  _  || |/ _ \/ __| __|| |/ _ \ / __| __|           
+     | | | || |  __/\__ \ |_ | | (_) | (__| |_            
+     \_| |_/|_|\___||___/\__||_|\___/ \___|\__|  v1.0.0   
+                                                         
+                   Log Analyzer                          
+                    Developed by ZeD     
 
 ## Descrição
 O **Hlestlock** é um script em Bash que permite analisar arquivos de log de servidores **apache2**. Ele fornece várias funcionalidades, como listar IPs que acessaram o servidor, contar acessos por recurso, identificar User-Agents utilizados, e muito mais. Este script é útil para administradores de sistemas e desenvolvedores que desejam monitorar e entender melhor o tráfego de seus servidores.
