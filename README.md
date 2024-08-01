@@ -43,7 +43,7 @@ O script oferece um menu interativo com as seguintes opções:
 ## Créditos
 
     Desenvolvedor Principal: ZeD 
-     Roberson Rodrigo - https://www.linkedin.com/in/robersonr/
-   
-   Contribuições:
-        Carlos Tuma  - https://github.com/carlosalbertotuma | https://www.linkedin.com/in/carlos-tuma/
+     Roberson Rodrigo - https://github.com/robersonrodrigo/ | https://www.linkedin.com/in/robersonr
+     
+     Contribuições:
+        Carlos Tuma - https://github.com/carlosalbertotuma | https://www.linkedin.com/in/carlos-tuma
