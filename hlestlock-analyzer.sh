@@ -3,6 +3,7 @@
 # Define cores para formatação
 cor_vermelho="\e[1;31m"   # Define vermelho claro e negrito
 cor_verde="\e[1;32m"      # Define verde claro e negrito
+cor_azul="\e[1;34m"	  # Define azul 
 cor_reset="\e[0m"         # Reseta a formatação para o padrão
 
 # Função para exibir o banner de uso
@@ -60,10 +61,13 @@ listar_ips() {
 acessos_por_recurso() {
     clear
     banner2
-    echo -e "${cor_vermelho}Quantidade de acessos por recurso${cor_reset}"
     for ip in "${ips[@]}"; do
-        echo -e "${cor_verde}Recursos mais acessados pelo IP: $ip${cor_reset}"
-        grep "$ip" "$1" | cut -d " " -f 7 | sort | uniq -c
+        if [ "$ip" != "::1" ]; then
+            echo ""
+            echo -e "${cor_verde}Recursos mais acessados pelo IP: ${cor_vermelho}$ip${cor_reset}"
+            echo ""
+            awk -v ip="$ip" '$0 ~ ip {print $7}' "$1" | sort | uniq -c | sort -rn | head -10
+        fi
     done
 }
 
@@ -112,7 +116,7 @@ primeiro_ultimo_acesso() {
 # Função para exibir o menu
 exibir_menu() {
 	echo ""
-	echo -e "${cor_verde}Menu:${cor_reset}"
+	echo -e "${cor_azul}Menu:${cor_reset}"
 	echo ""
 	echo -e "[1] - Listar endereços IP"
 	echo -e "[2] - Quantidade de acessos por recurso"
