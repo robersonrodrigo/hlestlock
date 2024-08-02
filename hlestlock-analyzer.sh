@@ -48,14 +48,15 @@ listar_ips() {
     clear 
     banner2
     echo -e -n "${cor_vermelho}IPs que acessam o servidor${cor_reset} | "
-    # Exibir a quantidade de acessos
     echo -e "${cor_verde}Quantidade de acessos${cor_reset}"
-    echo ""	
-    # Processar e exibir os IPs e suas quantidades de acesso
-    cut -d " " -f 1 "$1" | grep -v ":" | sort | uniq -c | sort -unr | while read -r count ip; do
-        echo -e "${cor_vermelho}${ip}${cor_reset}  -  ${cor_verde}${count}${cor_reset} Acessos${cor_reset}"
+    echo ""
+
+    # Processar e exibir os IPs e suas quantidades de acesso usando awk
+    awk '{print $1}' "$1" | grep -v ":" | awk '{count[$1]++} END {for (ip in count) print ip, count[ip]}' | sort -k2,2nr | while read -r ip count; do
+        echo -e "${cor_vermelho}${ip}${cor_reset}  -  ${cor_verde}${count}${cor_reset} Acessos"
     done
 }
+
 
 # Mostrar quantidade de acessos por recurso
 acessos_por_recurso() {
