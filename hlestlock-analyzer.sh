@@ -2,12 +2,12 @@
 
 # Define cores para formatação
 cor_vermelho="\e[1;31m"   # Define vermelho claro e negrito
-cor_verde="\e[1;32m"     # Define verde claro e negrito
-cor_reset="\e[0m"        # Reseta a formatação para o padrão
+cor_verde="\e[1;32m"      # Define verde claro e negrito
+cor_reset="\e[0m"         # Reseta a formatação para o padrão
 
 # Função para exibir o banner de uso
 banner() {
-    echo "Uso: ./hlestlock-analyzer.sh  /caminho/do/arquivo.log"
+    echo "Uso: ./hlestlock-analyzer.sh /caminho/do/arquivo.log"
 }
 
 # Função para exibir o banner principal
@@ -47,9 +47,14 @@ gerar_array_ips() {
 listar_ips() {
     clear 
     banner2
-    echo -e "${cor_vermelho}IPs que acessam o servidor${cor_reset}"
-    echo -e "${cor_verde}Qtd de acessos:${cor_reset}"
-    cut -d " " -f 1 "$1" | sort | uniq -c | sort -unr
+    echo -e -n "${cor_vermelho}IPs que acessam o servidor${cor_reset} | "
+    # Exibir a quantidade de acessos
+    echo -e "${cor_verde}Quantidade de acessos${cor_reset}"
+    echo ""	
+    # Processar e exibir os IPs e suas quantidades de acesso
+    cut -d " " -f 1 "$1" | grep -v ":" | sort | uniq -c | sort -unr | while read -r count ip; do
+        echo -e "${cor_vermelho}${ip}${cor_reset}  -  ${cor_verde}${count}${cor_reset} Acessos${cor_reset}"
+    done
 }
 
 # Mostrar quantidade de acessos por recurso
@@ -57,10 +62,7 @@ acessos_por_recurso() {
     clear
     banner2
     echo -e "${cor_vermelho}Quantidade de acessos por recurso${cor_reset}"
-    for ip in "${ips[@]}"; do
-        echo -e "${cor_verde}Recursos mais acessados pelo IP: $ip${cor_reset}"
-        grep "$ip" "$1" | cut -d " " -f 7 | sort | uniq -c
-    done
+    awk '{print $7}' "$1" | sort | uniq -c | sort -nr | head -n 20
 }
 
 # Mostrar User-Agents utilizados por IP
@@ -107,16 +109,17 @@ primeiro_ultimo_acesso() {
 
 # Função para exibir o menu
 exibir_menu() {
-    echo ""
-    echo -e "${cor_verde}Menu:${cor_reset}"
-    echo -e "[1] - Listar IPs"
-    echo -e "[2] - Quantidade de acessos por recurso"
-    echo -e "[3] - User-Agents utilizados por IP"
-    echo -e "[4] - Ferramentas utilizadas pelos IPs"
-    echo -e "[5] - Procurar acesso por arquivo"
-    echo -e "[6] - Primeiro/Último acesso por IP"
-    echo -e "[7] - Sair"
-    echo ""
+	echo ""
+	echo -e "${cor_verde}Menu:${cor_reset}"
+	echo ""
+	echo -e "[1] - Listar endereços IP"
+	echo -e "[2] - Quantidade de acessos por recurso"
+	echo -e "[3] - Exibir User-Agents utilizados por endereço IP"
+	echo -e "[4] - Exibir ferramentas utilizadas pelos endereços IP"
+	echo -e "[5] - Pesquisar por acesso a um arquivo específico"
+	echo -e "[6] - Exibir primeiro e último acesso por endereço IP"
+	echo -e "[7] - Sair"
+	echo ""
 }
 
 # Função principal
@@ -128,11 +131,10 @@ main() {
 
     validar_arquivo "$1"
     gerar_array_ips "$1"
-    gerar_requisicoes_por_ip "$1"
 
     while true; do
         exibir_menu
-        echo -e "${cor_verde}Escolha uma opção:${cor_reset}"
+        echo -e -n "${cor_verde}Escolha uma opção: ${cor_reset}"
         read -r opcao
         case "$opcao" in
             1) listar_ips "$1" ;;
@@ -143,7 +145,6 @@ main() {
             6) primeiro_ultimo_acesso "$1" ;;
             7) 
                 echo "Saindo..."
-                limpar_arquivos_temporarios
                 exit 0
                 ;;
             *) 
