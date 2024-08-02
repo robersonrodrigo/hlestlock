@@ -14,12 +14,12 @@ banner() {
 banner2() {
     echo -e "\033[31m"
     echo -e ""
-    echo -e "   _   _  _           _     _            _              "
-    echo -e "  | | | || |         | |   | |          | |             "
-    echo -e "  | |_| || | ___  ___| |_  | | ___   ___| |_            "
-    echo -e "  |  _  || |/ _ \/ __| __| | |/ _ \ / __| __|           "
-    echo -e "  | | | || |  __/ \__ \ |_ | | (_) | (__| |_            "
-    echo -e "  \_| |_/|_|\___| |___/\__||_|\___/ \___|\__|  v1.0.0   "
+    echo -e "   _   _  _           _    _            _              "
+    echo -e "  | | | || |         | |  | |          | |             "
+    echo -e "  | |_| || | ___  ___| |_ | | ___   ___| |_            "
+    echo -e "  |  _  || |/ _ \/ __| __|| |/ _ \ / __| __|           "
+    echo -e "  | | | || |  __/\__ \ |_ | | (_) | (__| |_            "
+    echo -e "  \_| |_/|_|\___||___/\__||_|\___/ \___|\__|  v1.0.0   "
     echo -e "                                                        "
     echo -e "                  Log Analyzer                          "
     echo -e "                  Developed by ZeD                      "
@@ -41,18 +41,6 @@ validar_arquivo() {
 # Gera um array contendo os IPs únicos
 gerar_array_ips() {
     mapfile -t ips < <(cut -d " " -f 1 "$1" | sort -u)
-}
-
-# Gera arquivos de requisições por IP
-gerar_requisicoes_por_ip() {
-    for ip in "${ips[@]}"; do
-        grep "$ip" "$1" > "${ip}.txt"
-    done
-}
-
-# Limpa arquivos temporários
-limpar_arquivos_temporarios() {
-    rm -f *.txt
 }
 
 # Listar IPs e quantidades de acesso
