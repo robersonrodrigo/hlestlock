@@ -50,20 +50,21 @@ listar_ips() {
     echo -e -n "${cor_vermelho}IPs que acessam o servidor${cor_reset} | "
     echo -e "${cor_verde}Quantidade de acessos${cor_reset}"
     echo ""
-
-    # Processar e exibir os IPs e suas quantidades de acesso usando awk
+    # Processar e exibir os IPs e suas quantidades de acesso
     awk '{print $1}' "$1" | grep -v ":" | awk '{count[$1]++} END {for (ip in count) print ip, count[ip]}' | sort -k2,2nr | while read -r ip count; do
         echo -e "${cor_vermelho}${ip}${cor_reset}  -  ${cor_verde}${count}${cor_reset} Acessos"
     done
 }
-
 
 # Mostrar quantidade de acessos por recurso
 acessos_por_recurso() {
     clear
     banner2
     echo -e "${cor_vermelho}Quantidade de acessos por recurso${cor_reset}"
-    awk '{print $7}' "$1" | sort | uniq -c | sort -nr | head -n 20
+    for ip in "${ips[@]}"; do
+        echo -e "${cor_verde}Recursos mais acessados pelo IP: $ip${cor_reset}"
+        grep "$ip" "$1" | cut -d " " -f 7 | sort | uniq -c
+    done
 }
 
 # Mostrar User-Agents utilizados por IP
