@@ -14,17 +14,17 @@ O **Hlestlock** é um script em Bash que permite analisar arquivos de log de ser
 ## Instalação
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/robersonrodrigo/hlestlock-analyzer
-   cd hlestlock-analyzer
+   git clone https://github.com/robersonrodrigo/hlestlock
+   cd hlestlock
    
 2. Dê permissão de execução ao script:
    ```bash
-   chmod +x hlestlock-analyzer.sh
+   chmod +x hlestlock.sh
 
 ## Uso
  Para executar o script, utilize o seguinte comando:
    
-   "./hlestlock-analyzer.sh /caminho/do/arquivo.log"
+   "./hlestlock.sh /caminho/do/arquivo.log"
 
 ## Funcionalidades
 
